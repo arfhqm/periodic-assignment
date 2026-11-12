@@ -1,0 +1,214 @@
+/* ---------- Design tokens ---------- */
+:root {
+    --accent: rgba(127, 255, 255, 0.75);
+    --accent-strong: rgba(127, 255, 255, 0.95);
+    --glow: rgba(0, 255, 255, 0.5);
+
+    --red: rgba(210, 40, 40, 0.75);
+    --orange: rgba(255, 140, 0, 0.75);
+    --green: rgba(34, 170, 68, 0.75);
+
+    --tile-w: 120px;
+    --tile-h: 160px;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+    background: #000;
+    color: #fff;
+    font-family: Helvetica, Arial, sans-serif;
+    overflow: hidden;
+}
+
+button {
+    color: var(--accent);
+    background: transparent;
+    outline: 1px solid var(--accent);
+    border: 0;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+    background-color: var(--glow);
+}
+
+button:active:not(:disabled) {
+    color: #000;
+    background-color: var(--accent);
+}
+
+button:focus-visible {
+    outline-width: 2px;
+    outline-color: #fff;
+}
+
+button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+button.active {
+    color: #000;
+    background-color: var(--accent);
+}
+
+/* ---------- Login ---------- */
+.login {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: #000;
+}
+
+.login h1 {
+    margin: 0;
+    font-weight: 300;
+    color: var(--accent-strong);
+}
+
+.login p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--accent);
+}
+
+.status {
+    min-height: 18px;
+    max-width: 80%;
+    text-align: center;
+    font-size: 13px;
+    color: #f88;
+}
+
+/* ---------- HUD ---------- */
+.menu {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    z-index: 5;
+}
+
+.legend {
+    position: absolute;
+    top: 12px;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    color: var(--accent-strong);
+    z-index: 5;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 4px 0 14px;
+    border-radius: 50%;
+}
+
+/* Net worth tiers (shared by legend dots and tiles) */
+.tier-red {
+    background-color: var(--red);
+}
+
+.tier-orange {
+    background-color: var(--orange);
+}
+
+.tier-green {
+    background-color: var(--green);
+}
+
+/* ---------- Tiles ---------- */
+.element {
+    position: relative;
+    width: var(--tile-w);
+    height: var(--tile-h);
+    overflow: hidden;
+    text-align: center;
+    line-height: normal;
+    cursor: default;
+    border: 1px solid rgba(127, 255, 255, 0.25);
+    box-shadow: 0 0 12px var(--glow);
+}
+
+.element:hover {
+    border-color: rgba(127, 255, 255, 0.75);
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.75);
+}
+
+.element .number {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.element .name {
+    position: absolute;
+    top: 20px;
+    left: 4px;
+    right: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.element .photo {
+    position: absolute;
+    top: 42px;
+    left: 35px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.element .details {
+    position: absolute;
+    top: 98px;
+    left: 4px;
+    right: 4px;
+    font-size: 10px;
+    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.element .networth {
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}

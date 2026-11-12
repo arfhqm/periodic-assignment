@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>3D Net Worth Table</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Login screen -->
+    <main id="login" class="login">
+        <h1>3D Net Worth Table</h1>
+        <p>Sign in with Google to load the data</p>
+        <button id="signin" type="button" disabled>Sign in with Google</button>
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+    </main>
+
+    <!-- App (hidden until login succeeds) -->
+    <div id="legend" class="legend" hidden>
+        Net Worth:
+        <span class="dot tier-red"></span>&lt; $100K
+        <span class="dot tier-orange"></span>$100K – $200K
+        <span class="dot tier-green"></span>&gt; $200K
+    </div>
+
+    <div id="container"></div>
+
+    <nav id="menu" class="menu" aria-label="Layout" hidden>
+        <button id="table" type="button">TABLE</button>
+        <button id="sphere" type="button">SPHERE</button>
+        <button id="helix" type="button">HELIX</button>
+        <button id="grid" type="button">GRID</button>
+    </nav>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
